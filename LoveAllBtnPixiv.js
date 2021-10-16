@@ -2,20 +2,21 @@
 // @name Like All Img
 // @namespace Script Runner Pro
 // @match https://www.pixiv.net/*
+// @icon         https://www.google.com/s2/favicons?domain=www.pixiv.net
 // @grant none
 // ==/UserScript==
 
 (function () {
   "use strict";
   var handle = setInterval(() => {
-    var li = document.querySelector(".kHzzxA");
+    var li = document.querySelector(".fcreHP");
     if (li) {
       clearInterval(handle);
       li.insertAdjacentHTML(
         "afterbegin",
         `
-        <li class="sc-1ow64s0-0 eSgOQL">
-          <button id="loveAll" class="sc-1ow64s0-1 SRdVq" style="background-color: #4d90fe ;opacity: 0.8;">
+        <li class="sc-1ow64s0-0 dDbpNF">
+          <button id="loveAll" class="sc-1ow64s0-1 kThorg" style="background-color: #4d90fe ;opacity: 0.8;z-index: 99;">
             <svg viewBox="0 0 32 32" class="_3Fo0Hjg" style="stroke-width: 1;stroke: red;">
                 <path d="
                     M21,5.5 C24.8659932,5.5 28,8.63400675 28,12.5 C28,18.2694439 24.2975093,23.1517313 17.2206059,27.1100183
@@ -34,7 +35,7 @@
       var loveAll = document.querySelector("#loveAll");
       loveAll.addEventListener("click", () => {
         console.log("LOVED THIS");
-        var elms = document.querySelectorAll(".hfJNCQ");
+        var elms = document.querySelectorAll(".dxYRhf");
         for (var i = 0; i < elms.length; i++) elms[i].parentElement.click();
       });
     }
