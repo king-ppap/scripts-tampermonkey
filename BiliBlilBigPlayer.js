@@ -12,7 +12,6 @@
 (function () {
   'use strict';
   let bigState = false;
-  let isAddedBtn = true;
   let interV = setInterval(() => {
     const playerBar = document.getElementsByClassName("player-mobile-control-bar-right")[0];
     if (playerBar) {
