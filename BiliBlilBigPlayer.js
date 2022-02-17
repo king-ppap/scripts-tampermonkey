@@ -32,11 +32,13 @@
           bilibiliPlayer.style.position = "fixed";
           bilibiliPlayer.style.left = "0";
           bilibiliPlayer.style.top = "0";
+          document.body.style.overflow = "hidden"
         } else {
           bilibiliPlayer.style.zIndex = "";
           bilibiliPlayer.style.position = "";
           bilibiliPlayer.style.left = "";
           bilibiliPlayer.style.top = "";
+          document.body.style.overflow = ""
         }
         bigState = !bigState
       });
