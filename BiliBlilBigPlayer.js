@@ -38,7 +38,7 @@
           bilibiliPlayer.style.position = "";
           bilibiliPlayer.style.left = "";
           bilibiliPlayer.style.top = "";
-          document.body.style.overflow = ""
+          document.body.style.overflow = "auto";
         }
         bigState = !bigState
       });
