@@ -2,7 +2,7 @@
 // @name         Bilibili Big Player
 // @namespace    http://tampermonkey.net/
 // @version      0.1
-// @description  BIG PLAYER click "B" Button in player
+// @description  BIG PLAYER click "BIG" Button on top left of player
 // @author       king-ppap
 // @match        https://www.bilibili.tv/th/play/*
 // @icon         https://p.bstarstatic.com/fe-static/deps/bilibili_tv.ico
@@ -13,16 +13,18 @@
   'use strict';
   let bigState = false;
   let interV = setInterval(() => {
-    const playerBar = document.getElementsByClassName("player-mobile-control-bar-right")[0];
+    const playerBar = document.getElementsByClassName("player-mobile-top-bar")[0];
     if (playerBar) {
-      document.getElementsByClassName("player-mobile-control-bar-right")[0].innerHTML += `<div>
-          <button id="playBigq" style="
+      playerBar.innerHTML = `<div
+            class="player-mobile-control-btn">
+          <button id="playBigq"
+            style="
               padding: 10px;
               background: #0c3d878c;
               color: #fff;
               border-radius: 25px;
-          ">B</button>
-      </div>`;
+          ">BIG</button>
+      </div>` + playerBar.innerHTML;
       document.getElementById("playBigq").addEventListener('click', () => {
         const bilibiliPlayer = document.getElementById("bilibiliPlayer");
         if (!bigState) {
