@@ -45,9 +45,12 @@
       clearInterval(interV);
     }
   }, 100);
+
   document.getElementsByClassName("main-area media-size__video-wrap")[0].style.width = "100%";
   document.getElementsByClassName("episode-area select-ep")[0].style.width = "100%";
   document.getElementsByClassName("episode-area select-ep")[0].style.height = "450px";
+  document.getElementsByClassName("layout-body media-width")[0].style.width = "100%";
+  document.getElementsByClassName("video-container media-width__video")[0].style.width = "100%";
 
   const tempPlayer = document.getElementsByClassName("media-size__video");
   for (let index = 0; index < tempPlayer.length; index++) {
