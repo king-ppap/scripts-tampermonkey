@@ -12,39 +12,61 @@
 (function () {
   'use strict';
   let bigState = false;
-  let interV = setInterval(() => {
-    if (document.getElementById("playBigq"))
-      return;
-    
+  let isInit = false;
+  function updatePlayerBar() {
     const playerBar = document.getElementsByClassName("player-mobile-top-bar")[0];
-    if (playerBar) {
-      playerBar.innerHTML = `<div
-            class="player-mobile-control-btn">
-          <button id="playBigq"
-            style="
-              padding: 10px;
-              background: #0c3d878c;
-              color: #fff;
-              border-radius: 25px;
-          ">BIG</button>
-      </div>` + playerBar.innerHTML;
-      document.getElementById("playBigq").addEventListener('click', () => {
-        const bilibiliPlayer = document.getElementById("bilibiliPlayer");
-        if (!bigState) {
-          bilibiliPlayer.style.zIndex = "999";
-          bilibiliPlayer.style.position = "fixed";
-          bilibiliPlayer.style.left = "0";
-          bilibiliPlayer.style.top = "0";
-          document.body.style.overflow = "hidden"
-        } else {
-          bilibiliPlayer.style.zIndex = "";
-          bilibiliPlayer.style.position = "";
-          bilibiliPlayer.style.left = "";
-          bilibiliPlayer.style.top = "";
-          document.body.style.overflow = "auto";
-        }
-        bigState = !bigState
-      });
+
+    if (!playerBar)
+      return;
+
+    playerBar.innerHTML = `<div
+          class="player-mobile-control-btn">
+        <button id="playBigq"
+          style="
+            padding: 10px;
+            background: #0c3d878c;
+            color: #fff;
+            border-radius: 25px;
+        ">BIG</button>
+    </div>` + playerBar.innerHTML;
+    document.getElementById("playBigq").addEventListener('click', () => {
+      if (!bigState) {
+        bilibiliPlayer.style.zIndex = "999";
+        bilibiliPlayer.style.position = "fixed";
+        bilibiliPlayer.style.left = "0";
+        bilibiliPlayer.style.top = "0";
+        document.body.style.overflow = "hidden"
+      } else {
+        bilibiliPlayer.style.zIndex = "";
+        bilibiliPlayer.style.position = "";
+        bilibiliPlayer.style.left = "";
+        bilibiliPlayer.style.top = "";
+        document.body.style.overflow = "auto";
+      }
+      bigState = !bigState
+    });
+  }
+
+  const observer = new MutationObserver(es => {
+    const playerMobile = es.flatMap(e => [...e.addedNodes])
+      .filter(x => x.className === 'player-mobile');
+
+    if (playerMobile) {
+      updatePlayerBar();
+    }
+
+  });
+
+  let interV = setInterval(() => {
+    if (!isInit) {
+      const bilibiliPlayer = document.getElementById("bilibiliPlayer");
+      if (bilibiliPlayer) {
+        console.warn("Cbserver init.");
+        observer.observe(bilibiliPlayer, { childList: true });
+        updatePlayerBar();
+        clearInterval(interV);
+        isInit = true;
+      }
     }
   }, 100);
 
