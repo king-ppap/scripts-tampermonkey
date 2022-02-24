@@ -13,6 +13,9 @@
   'use strict';
   let bigState = false;
   let interV = setInterval(() => {
+    if (document.getElementById("playBigq"))
+      return;
+    
     const playerBar = document.getElementsByClassName("player-mobile-top-bar")[0];
     if (playerBar) {
       playerBar.innerHTML = `<div
@@ -42,7 +45,6 @@
         }
         bigState = !bigState
       });
-      clearInterval(interV);
     }
   }, 100);
 
