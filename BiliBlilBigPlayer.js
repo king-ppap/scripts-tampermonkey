@@ -7,20 +7,22 @@
 // @match        https://www.bilibili.tv/th/play/*
 // @icon         https://p.bstarstatic.com/fe-static/deps/bilibili_tv.ico
 // @grant        none
+// @downloadURL  https://raw.githubusercontent.com/king-ppap/scripts-tampermonkey/main/BiliBlilBigPlayer.js
+// @updateURL    https://raw.githubusercontent.com/king-ppap/scripts-tampermonkey/main/BiliBlilBigPlayer.js
 // ==/UserScript==
 
 (function () {
   'use strict';
   let bigState = false;
   let isInit = false;
+  let bilibiliPlayer;
   function updatePlayerBar() {
     const playerBar = document.getElementsByClassName("player-mobile-top-bar")[0];
 
-    if (!playerBar)
-      return;
+    if (!playerBar) return;
 
-    var elContainer = document.createElement("div");
-    var elBtn = document.createElement("button");
+    const elContainer = document.createElement("div");
+    const elBtn = document.createElement("button");
 
     elContainer.className = "player-mobile-control-btn";
     elContainer.append(elBtn);
@@ -61,7 +63,7 @@
 
   let interV = setInterval(() => {
     if (!isInit) {
-      const bilibiliPlayer = document.getElementById("bilibiliPlayer");
+      bilibiliPlayer = document.getElementById("bilibiliPlayer");
       if (bilibiliPlayer) {
         observer.observe(bilibiliPlayer, { childList: true });
         updatePlayerBar();
