@@ -19,17 +19,18 @@
     if (!playerBar)
       return;
 
-    playerBar.innerHTML = `<div
-          class="player-mobile-control-btn">
-        <button id="playBigq"
-          style="
-            padding: 10px;
-            background: #0c3d878c;
-            color: #fff;
-            border-radius: 25px;
-        ">BIG</button>
-    </div>` + playerBar.innerHTML;
-    document.getElementById("playBigq").addEventListener('click', () => {
+    var elContainer = document.createElement("div");
+    var elBtn = document.createElement("button");
+
+    elContainer.className = "player-mobile-control-btn";
+    elContainer.append(elBtn);
+    elBtn.innerText = "BIG";
+    elBtn.style.padding = "10px";
+    elBtn.style.background = "#0c3d878c";
+    elBtn.style.color = "#fff";
+    elBtn.style.borderRadius = "25px";
+    elBtn.style.cursor = "pointer";
+    elBtn.addEventListener('click', () => {
       if (!bigState) {
         bilibiliPlayer.style.zIndex = "999";
         bilibiliPlayer.style.position = "fixed";
@@ -45,6 +46,7 @@
       }
       bigState = !bigState
     });
+    playerBar.prepend(elContainer);
   }
 
   const observer = new MutationObserver(es => {
@@ -61,7 +63,6 @@
     if (!isInit) {
       const bilibiliPlayer = document.getElementById("bilibiliPlayer");
       if (bilibiliPlayer) {
-        console.warn("Cbserver init.");
         observer.observe(bilibiliPlayer, { childList: true });
         updatePlayerBar();
         clearInterval(interV);
