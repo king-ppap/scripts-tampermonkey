@@ -63,7 +63,6 @@
     if (!isInit) {
       const bilibiliPlayer = document.getElementById("bilibiliPlayer");
       if (bilibiliPlayer) {
-        console.warn("Cbserver init.");
         observer.observe(bilibiliPlayer, { childList: true });
         updatePlayerBar();
         clearInterval(interV);
