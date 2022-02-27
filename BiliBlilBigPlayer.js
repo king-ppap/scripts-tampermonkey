@@ -4,7 +4,7 @@
 // @version      1.0.0
 // @description  BIG PLAYER click "BIG" Button on top left of player
 // @author       king-ppap
-// @match        https://www.bilibili.tv/th/play/*
+// @match        https://www.bilibili.tv/*/play/*
 // @icon         https://p.bstarstatic.com/fe-static/deps/bilibili_tv.ico
 // @grant        none
 // @downloadURL  https://raw.githubusercontent.com/king-ppap/scripts-tampermonkey/main/BiliBlilBigPlayer.js
