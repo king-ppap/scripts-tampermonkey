@@ -4,7 +4,7 @@
 // @version      1.0.0
 // @description  BIG PLAYER click "BIG" Button on top left of player
 // @author       king-ppap
-// @match        https://www.bilibili.tv/*/play/*
+// @match        https://www.bilibili.tv/*
 // @icon         https://p.bstarstatic.com/fe-static/deps/bilibili_tv.ico
 // @grant        none
 // @downloadURL  https://raw.githubusercontent.com/king-ppap/scripts-tampermonkey/main/BiliBlilBigPlayer.js
@@ -63,6 +63,16 @@
 
   let interV = setInterval(() => {
     if (!isInit) {
+      // Dark Theme
+      document.body.style.backgroundColor = "#000";
+      document.body.style.color = "rgb(217, 217, 217)";
+      document.querySelectorAll(".bstar-web__header").forEach(e => {
+        e.style.background = "rgba(26,26,26,.85)"
+      });
+      document.querySelector("#search-bar")?.classList.add("comp-search-bar-dark");
+      document.querySelector(".bstar-backtop")?.classList.add("dark");
+      document.querySelector(".sidebar__link")?.classList.add("category-title-dark");
+
       bilibiliPlayer = document.getElementById("bilibiliPlayer");
       if (bilibiliPlayer) {
         observer.observe(bilibiliPlayer, { childList: true });
