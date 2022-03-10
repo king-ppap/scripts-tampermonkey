@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bilibili Big Player
 // @namespace    http://tampermonkey.net/
-// @version      1.1.0
+// @version      1.0.0
 // @description  BIG PLAYER click "BIG" Button on top left of player
 // @author       king-ppap
 // @match        https://www.bilibili.tv/*
@@ -75,6 +75,8 @@
 
       bilibiliPlayer = document.getElementById("bilibiliPlayer");
       if (bilibiliPlayer) {
+        bilibiliPlayer.style.width = "100%";
+        bilibiliPlayer.style.height = "100%";
         observer.observe(bilibiliPlayer, { childList: true });
         updatePlayerBar();
         clearInterval(interV);
