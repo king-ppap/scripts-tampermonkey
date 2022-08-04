@@ -1,19 +1,20 @@
 // ==UserScript==
 // @name Like All Img
 // @namespace Script Runner Pro
+// @description Like all image in page
 // @match https://www.pixiv.net/*
 // @icon         https://www.google.com/s2/favicons?domain=www.pixiv.net
 // @grant none
 // @author       king-ppap
-// @version      1.0.1
+// @version      1.0.2
 // @updateURL    https://raw.githubusercontent.com/king-ppap/scripts-tampermonkey/main/LoveAllBtnPixiv.js
 // @downloadURL  https://raw.githubusercontent.com/king-ppap/scripts-tampermonkey/main/LoveAllBtnPixiv.js
 // ==/UserScript==
 
 (function () {
   "use strict";
-  var handle = setInterval(() => {
-    var li = document.querySelector(".fcreHP");
+  const handle = setInterval(() => {
+    const li = document.querySelector(".fcreHP");
     if (li) {
       clearInterval(handle);
       li.insertAdjacentHTML(
@@ -38,10 +39,10 @@ C26,9.73857625 23.7614237,7.5 21,7.5 C18.9508494,7.5 16.9142799,9.28334665 16,11
         </li>`
       );
 
-      var loveAll = document.querySelector("#loveAll");
+      const loveAll = document.querySelector("#loveAll");
       loveAll.addEventListener("click", () => {
         console.log("LOVED THIS");
-        var elms = document.querySelectorAll(".dxYRhf");
+        const elms = document.querySelectorAll(".fYcrPo");
         for (var i = 0; i < elms.length; i++) elms[i].parentElement.click();
       });
     }
