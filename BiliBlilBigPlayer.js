@@ -13,6 +13,7 @@
 
 (function () {
   'use strict';
+
   let bigState = false;
   let isInit = false;
   let bilibiliPlayer;
@@ -69,13 +70,19 @@
 
       document.querySelector(".bstar-header").style.backgroundColor = '#000';
       document.querySelector(".bstar-header").style.borderBottomWidth = '0';
-      document.querySelector(".interactive").style.backgroundColor = '#000';
+      if (document.querySelector(".interactive")) document.querySelector(".interactive").style.backgroundColor = '#000';
       document.querySelector(".bstar-header-search-bar__input").style.backgroundColor = '#000';
       document.querySelector(".bstar-header-search-bar__input").style.color = '#fff';
 
-      document.querySelectorAll(".video-*").forEach(e => {
-        e.style.color = "rgb(217, 217, 217)";
-      });
+      // Another page
+      document.querySelector(".layout__content").style.backgroundColor = '#000';
+      if (document.querySelector(".layout__wrapper")) document.querySelector(".layout__wrapper").style.backgroundColor = '#000';
+      if (document.querySelector(".bstar-sidebar")) document.querySelector(".bstar-sidebar").style.backgroundColor = '#000';
+      if (document.querySelector(".trending")) document.querySelector(".trending").style.backgroundColor = '#000';
+
+     // document.querySelectorAll(".video-*").forEach(e => {
+      //  e.style.color = "rgb(217, 217, 217)";
+     // });
 
       document.querySelectorAll(".bstar-web__header").forEach(e => {
         e.style.background = "rgba(26,26,26,.85)"
@@ -97,12 +104,13 @@
     }
   }, 100);
 
-  document.querySelector("main-area media-size__video-wrap").style.width = "100%";
+    /*
+  if (document.querySelector("main-area media-size__video-wrap")) document.querySelector("main-area media-size__video-wrap").style.width = "100%";
   document.querySelector("episode-area select-ep").style.width = "100%";
   document.querySelector("episode-area select-ep").style.height = "450px";
   document.querySelector("layout-body media-width").style.width = "100%";
   document.querySelector("video-container media-width__video").style.width = "100%";
-
+*/
   const tempPlayer = document.getElementsByClassName("media-size__video");
   for (let index = 0; index < tempPlayer.length; index++) {
     tempPlayer[index].style.height = "80vh";
