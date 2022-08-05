@@ -66,10 +66,22 @@
       // Dark Theme
       document.body.style.backgroundColor = "#000";
       document.body.style.color = "rgb(217, 217, 217)";
+
+      document.querySelector(".bstar-header").style.backgroundColor = '#000';
+      document.querySelector(".bstar-header").style.borderBottomWidth = '0';
+      document.querySelector(".interactive").style.backgroundColor = '#000';
+      document.querySelector(".bstar-header-search-bar__input").style.backgroundColor = '#000';
+      document.querySelector(".bstar-header-search-bar__input").style.color = '#fff';
+
+      document.querySelectorAll(".video-*").forEach(e => {
+        e.style.color = "rgb(217, 217, 217)";
+      });
+
       document.querySelectorAll(".bstar-web__header").forEach(e => {
         e.style.background = "rgba(26,26,26,.85)"
       });
       document.querySelector("#search-bar")?.classList.add("comp-search-bar-dark");
+
       document.querySelector(".bstar-backtop")?.classList.add("dark");
       document.querySelector(".sidebar__link")?.classList.add("category-title-dark");
 
@@ -85,11 +97,11 @@
     }
   }, 100);
 
-  document.getElementsByClassName("main-area media-size__video-wrap")[0].style.width = "100%";
-  document.getElementsByClassName("episode-area select-ep")[0].style.width = "100%";
-  document.getElementsByClassName("episode-area select-ep")[0].style.height = "450px";
-  document.getElementsByClassName("layout-body media-width")[0].style.width = "100%";
-  document.getElementsByClassName("video-container media-width__video")[0].style.width = "100%";
+  document.querySelector("main-area media-size__video-wrap").style.width = "100%";
+  document.querySelector("episode-area select-ep").style.width = "100%";
+  document.querySelector("episode-area select-ep").style.height = "450px";
+  document.querySelector("layout-body media-width").style.width = "100%";
+  document.querySelector("video-container media-width__video").style.width = "100%";
 
   const tempPlayer = document.getElementsByClassName("media-size__video");
   for (let index = 0; index < tempPlayer.length; index++) {
