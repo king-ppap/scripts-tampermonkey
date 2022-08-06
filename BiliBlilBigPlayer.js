@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bilibili Big Player
 // @namespace    http://tampermonkey.net/
-// @version      1.0.1
+// @version      1.1.0
 // @description  BIG PLAYER click "BIG" Button on top left of player
 // @author       king-ppap
 // @match        https://www.bilibili.tv/*
@@ -51,6 +51,31 @@
     });
     playerBar.prepend(elContainer);
   }
+    // the actual 'trigger' function
+  function trigger (el, etype, custom) {
+      const evt = custom ?? new Event( etype, { bubbles: true } );
+      el.dispatchEvent( evt );
+  };
+  function playerShortcut(event) {
+      const { code } = event;
+      console.log(code);
+      switch (code) {
+          case "KeyF":
+              console.log('KeyF fullscreen');
+              trigger(document.querySelector(".player-mobile-btn-fullscreen"), 'mousedown');
+              break;
+          case "KeyM":
+              console.log('KeyM mute');
+              trigger(document.querySelector(".player-mobile-control-btn-vol"), 'mousedown');
+              trigger(document.querySelector(".player-mobile-control-btn-vol"), 'mouseup');
+              break;
+          case "KeyT":
+              console.log('KeyT ip-widescreen-button');
+              trigger(document.querySelector(".ip-widescreen-button").parentElement.parentElement.parentElement, 'mousedown');
+              trigger(document.querySelector(".ip-widescreen-button").parentElement.parentElement.parentElement, 'mouseup');
+              break;
+      }
+  }
 
   const observer = new MutationObserver(es => {
     const playerMobile = es.flatMap(e => [...e.addedNodes])
@@ -58,6 +83,8 @@
 
     if (playerMobile) {
       updatePlayerBar();
+
+      document.body.addEventListener('keypress', playerShortcut)
     }
 
   });
@@ -75,7 +102,7 @@
       document.querySelector(".bstar-header-search-bar__input").style.color = '#fff';
 
       // Another page
-      document.querySelector(".layout__content").style.backgroundColor = '#000';
+      if (document.querySelector(".layout__content")) document.querySelector(".layout__content").style.backgroundColor = '#000';
       if (document.querySelector(".layout__wrapper")) document.querySelector(".layout__wrapper").style.backgroundColor = '#000';
       if (document.querySelector(".bstar-sidebar")) document.querySelector(".bstar-sidebar").style.backgroundColor = '#000';
       if (document.querySelector(".trending")) document.querySelector(".trending").style.backgroundColor = '#000';
