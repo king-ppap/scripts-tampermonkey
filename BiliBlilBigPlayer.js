@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bilibili Big Player
 // @namespace    http://tampermonkey.net/
-// @version      1.1.0
+// @version      1.2.0
 // @description  BIG PLAYER click "BIG" Button on top left of player
 // @author       king-ppap
 // @match        https://www.bilibili.tv/*
@@ -13,6 +13,10 @@
 
 (function () {
   'use strict';
+  const TEXT_COLOR = '#28b7cc';
+  let stylesheet = document.styleSheets[0]
+  stylesheet.insertRule(`.bstar-video-card__title-text { color: ${TEXT_COLOR}; }`, 0);
+  stylesheet.insertRule(`.bstar-sidebar__link { color: ${TEXT_COLOR} !important; }`, 0);
 
   let bigState = false;
   let isInit = false;
