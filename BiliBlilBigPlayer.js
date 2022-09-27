@@ -13,7 +13,7 @@
 
 (function () {
   'use strict';
-  const TEXT_COLOR = '#28b7cc';
+  const TEXT_COLOR = '#4c93ff';
   let stylesheet = document.styleSheets[0]
   stylesheet.insertRule(`.bstar-video-card__title-text { color: ${TEXT_COLOR}; }`, 0);
   stylesheet.insertRule(`.bstar-sidebar__link { color: ${TEXT_COLOR} !important; }`, 0);
