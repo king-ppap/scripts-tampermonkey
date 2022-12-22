@@ -22,7 +22,7 @@
           if (temp) {
               temp.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.click();
               const timeTemp = (waiting*SET_TIME)/1000;
-              console.log(`Get bonus for ${++count} times AND waiting for ${timeTemp} sec.`);
+              console.log(`${new Date().toISOString()}Get bonus for ${++count} times AND waiting for ${timeTemp} sec.`);
               histo.push(timeTemp);
               waiting = 0;
           } else {
