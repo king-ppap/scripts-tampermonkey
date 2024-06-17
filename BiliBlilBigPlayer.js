@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bilibili Big Player
 // @namespace    http://tampermonkey.net/
-// @version      1.2.0
+// @version      1.3.0
 // @description  BIG PLAYER click "BIG" Button on top left of player
 // @author       king-ppap
 // @match        https://www.bilibili.tv/*
@@ -103,13 +103,26 @@
       document.querySelector(".bstar-header").style.backgroundColor = '#000';
       document.querySelector(".bstar-header").style.borderBottomWidth = '0';
       if (document.querySelector(".interactive")) document.querySelector(".interactive").style.backgroundColor = '#000';
-      document.querySelector(".bstar-header-search-bar__input").style.backgroundColor = '#000';
-      document.querySelector(".bstar-header-search-bar__input").style.color = '#fff';
+        const searchBar = document.querySelector(".bstar-header-search-bar__input");
+        if (searchBar) {
+            // searchBar.style.backgroundColor = '#fff';
+            searchBar.style.color = '#fff';
+            document.querySelector(".bstar-header-search-bar").style.backgroundColor = '#3b3b3b';
+        }
 
+      document.querySelectorAll('.bstar-video-card__title-text').forEach(e =>( e.style.color = '#d1d1d1'));
+      document.querySelectorAll('.bstar-video-card__desc').forEach(e =>( e.style.color = '#d1d1d1'));
+      document.querySelectorAll('.bstar-header__action').forEach(e =>( e.style.color = '#d1d1d1'));
+      document.querySelectorAll('.bstar-header__download-btn').forEach(e =>( e.style.color = '#d1d1d1'));
+      document.querySelectorAll('.bstar-header__left-menu').forEach(e =>( e.style.color = '#d1d1d1'));
+      document.querySelectorAll('.bstar-sidebar__menu').forEach(e =>( e.style.color = 'red'));
       // Another page
       if (document.querySelector(".layout__content")) document.querySelector(".layout__content").style.backgroundColor = '#000';
       if (document.querySelector(".layout__wrapper")) document.querySelector(".layout__wrapper").style.backgroundColor = '#000';
-      if (document.querySelector(".bstar-sidebar")) document.querySelector(".bstar-sidebar").style.backgroundColor = '#000';
+      if (document.querySelector(".bstar-sidebar")) {
+            document.querySelector(".bstar-sidebar").style.backgroundColor = '#000';
+            document.querySelectorAll('.bstar-sidebar__link').forEach(e =>( e.style.color = '#d1d1d1'));
+      }
       if (document.querySelector(".trending")) document.querySelector(".trending").style.backgroundColor = '#000';
 
      // document.querySelectorAll(".video-*").forEach(e => {
