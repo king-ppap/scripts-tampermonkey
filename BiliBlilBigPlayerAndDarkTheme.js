@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bilibili Big Player
 // @namespace    http://tampermonkey.net/
-// @version      1.3.0
+// @version      1.2.0
 // @description  BIG PLAYER click "BIG" Button on top left of player
 // @author       king-ppap
 // @match        https://www.bilibili.tv/*
@@ -39,12 +39,14 @@
     elBtn.style.cursor = "pointer";
     elBtn.addEventListener('click', () => {
       if (!bigState) {
+        document.querySelector(".bstar-header").style.display = "none"
         bilibiliPlayer.style.zIndex = "999";
         bilibiliPlayer.style.position = "fixed";
         bilibiliPlayer.style.left = "0";
         bilibiliPlayer.style.top = "0";
         document.body.style.overflow = "hidden"
       } else {
+        document.querySelector(".bstar-header").style.display = "grid"
         bilibiliPlayer.style.zIndex = "";
         bilibiliPlayer.style.position = "";
         bilibiliPlayer.style.left = "";
@@ -102,6 +104,7 @@
 
       document.querySelector(".bstar-header").style.backgroundColor = '#000';
       document.querySelector(".bstar-header").style.borderBottomWidth = '0';
+
       if (document.querySelector(".interactive")) document.querySelector(".interactive").style.backgroundColor = '#000';
         const searchBar = document.querySelector(".bstar-header-search-bar__input");
         if (searchBar) {
