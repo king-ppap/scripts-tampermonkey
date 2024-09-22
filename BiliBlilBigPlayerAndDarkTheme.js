@@ -119,6 +119,8 @@
       document.querySelectorAll('.bstar-header__download-btn').forEach(e =>( e.style.color = '#d1d1d1'));
       document.querySelectorAll('.bstar-header__left-menu').forEach(e =>( e.style.color = '#d1d1d1'));
       document.querySelectorAll('.bstar-sidebar__menu').forEach(e =>( e.style.color = 'red'));
+      document.querySelectorAll('.ep-item').forEach(e =>( e.style.color = '#9b9b9b'));
+      document.querySelectorAll('.ep-item--active').forEach(e =>( e.style.color = '#06b6f2'));
       // Another page
       if (document.querySelector(".layout__content")) document.querySelector(".layout__content").style.backgroundColor = '#000';
       if (document.querySelector(".layout__wrapper")) document.querySelector(".layout__wrapper").style.backgroundColor = '#000';
