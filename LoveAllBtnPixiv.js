@@ -42,7 +42,7 @@ C26,9.73857625 23.7614237,7.5 21,7.5 C18.9508494,7.5 16.9142799,9.28334665 16,11
       const loveAll = document.querySelector("#loveAll");
       loveAll.addEventListener("click", () => {
         console.log("LOVED THIS");
-        const elms = document.querySelectorAll(".fYcrPo");
+        const elms = document.querySelectorAll(".gAARvC");
         for (var i = 0; i < elms.length; i++) elms[i].parentElement.click();
       });
     }
