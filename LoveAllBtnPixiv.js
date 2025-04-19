@@ -14,14 +14,14 @@
 (function () {
   "use strict";
   const handle = setInterval(() => {
-    const li = document.querySelector(".fcreHP");
+    const li = document.querySelector(".cGZLUC");
     if (li) {
       clearInterval(handle);
       li.insertAdjacentHTML(
         "afterbegin",
         `
-        <li class="sc-1ow64s0-0 dDbpNF">
-          <button id="loveAll" class="sc-1ow64s0-1 kThorg" style="background-color: #4d90fe ;opacity: 0.8;z-index: 99;
+        <li class="sc-abf0c38d-0 gGGBSB">
+          <button id="loveAll" class="sc-abf0c38d-1 cGOASa" style="background-color: #4d90fe ;opacity: 0.8;z-index: 99;
           display: flex;
     align-items: center;
     justify-content: center;">
