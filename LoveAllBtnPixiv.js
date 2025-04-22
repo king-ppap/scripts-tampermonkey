@@ -6,7 +6,7 @@
 // @icon         https://www.google.com/s2/favicons?domain=www.pixiv.net
 // @grant none
 // @author       king-ppap
-// @version      1.0.2
+// @version      1.0.3
 // @updateURL    https://raw.githubusercontent.com/king-ppap/scripts-tampermonkey/main/LoveAllBtnPixiv.js
 // @downloadURL  https://raw.githubusercontent.com/king-ppap/scripts-tampermonkey/main/LoveAllBtnPixiv.js
 // ==/UserScript==
