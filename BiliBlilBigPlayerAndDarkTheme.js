@@ -31,13 +31,16 @@
 
     elContainer.className = "player-mobile-control-btn";
     elContainer.append(elBtn);
-    elBtn.innerText = "BIG";
+    elBtn.innerText = "BIG (t)";
     elBtn.style.padding = "10px";
     elBtn.style.background = "#0c3d878c";
     elBtn.style.color = "#fff";
-    elBtn.style.borderRadius = "25px";
+    elBtn.style.borderRadius = "10px";
     elBtn.style.cursor = "pointer";
-    elBtn.addEventListener('click', () => {
+    elBtn.addEventListener('click', toggleBigPicture);
+    playerBar.prepend(elContainer);
+  }
+  const toggleBigPicture = () => {
       if (!bigState) {
         document.querySelector(".bstar-header").style.display = "none"
         bilibiliPlayer.style.zIndex = "999";
@@ -54,8 +57,6 @@
         document.body.style.overflow = "auto";
       }
       bigState = !bigState
-    });
-    playerBar.prepend(elContainer);
   }
     // the actual 'trigger' function
   function trigger (el, etype, custom) {
@@ -75,10 +76,16 @@
               trigger(document.querySelector(".player-mobile-control-btn-vol"), 'mousedown');
               trigger(document.querySelector(".player-mobile-control-btn-vol"), 'mouseup');
               break;
+          case "KeyW":
+              console.log('KeyW ip-widescreen-button');
+              // document.querySelector(".ip-widescreen-button").click()
+              trigger(document.querySelector(".ip-widescreen-button"), 'click');
+              // trigger(document.querySelector(".ip-widescreen-button"), 'mousedown');
+              // trigger(document.querySelector(".ip-widescreen-button"), 'mouseup');
+              break;
           case "KeyT":
-              console.log('KeyT ip-widescreen-button');
-              trigger(document.querySelector(".ip-widescreen-button").parentElement.parentElement.parentElement, 'mousedown');
-              trigger(document.querySelector(".ip-widescreen-button").parentElement.parentElement.parentElement, 'mouseup');
+              console.log('KeyT big pic');
+              toggleBigPicture();
               break;
       }
   }
@@ -119,8 +126,6 @@
       document.querySelectorAll('.bstar-header__download-btn').forEach(e =>( e.style.color = '#d1d1d1'));
       document.querySelectorAll('.bstar-header__left-menu').forEach(e =>( e.style.color = '#d1d1d1'));
       document.querySelectorAll('.bstar-sidebar__menu').forEach(e =>( e.style.color = 'red'));
-      document.querySelectorAll('.ep-item').forEach(e =>( e.style.color = '#9b9b9b'));
-      document.querySelectorAll('.ep-item--active').forEach(e =>( e.style.color = '#06b6f2'));
       // Another page
       if (document.querySelector(".layout__content")) document.querySelector(".layout__content").style.backgroundColor = '#000';
       if (document.querySelector(".layout__wrapper")) document.querySelector(".layout__wrapper").style.backgroundColor = '#000';
