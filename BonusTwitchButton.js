@@ -18,7 +18,7 @@
   let count = 0, waiting = 0, histo = [];
   setInterval(
       () => {
-          let temp = document.querySelector('.kIlsPe');
+          let temp = document.querySelector("#live-page-chat > div > div > div.Layout-sc-1xcs6mc-0.LJevC.chat-shell.chat-shell__expanded > div > div.Layout-sc-1xcs6mc-0.gyMdFQ.stream-chat > section > div > div.Layout-sc-1xcs6mc-0.kklSOA.chat-input > div:nth-child(2) > div.Layout-sc-1xcs6mc-0.bhgPEG.chat-input__buttons-container > div.Layout-sc-1xcs6mc-0.itoabb > div > div > div > div.Layout-sc-1xcs6mc-0.liFGiB > div > div > div > button");
           if (temp) {
               temp.click();
               const timeTemp = (waiting*SET_TIME)/1000;
