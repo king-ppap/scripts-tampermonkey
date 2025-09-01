@@ -113,8 +113,19 @@
 
       document.querySelector(".bstar-header").style.backgroundColor = '#000';
       document.querySelector(".bstar-header").style.borderBottomWidth = '0';
-      document.querySelector(".ep-item--active").style.color = '#06b6f2';
-      document.querySelector(".ep-item--active").style.backgroundColor = '#rgba(6,182,242,.1)';
+
+      const style = document.createElement('style');
+      style.textContent = `
+         .layout-grey {
+            background-color: #000 !important;
+         }
+         .ep-item--active, .ep-item--active:hover {
+            color: #06b6f2 !important;
+            background-color: rgba(6, 182, 242, .1) !important;
+         }
+      `;
+
+      document.head.appendChild(style);
 
       if (document.querySelector(".interactive")) document.querySelector(".interactive").style.backgroundColor = '#000';
         const searchBar = document.querySelector(".bstar-header-search-bar__input");
