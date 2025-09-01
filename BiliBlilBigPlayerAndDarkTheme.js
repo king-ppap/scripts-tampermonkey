@@ -106,46 +106,47 @@
     if (!isInit) {
       console.log("Init Tampermonkey")
       // Dark Theme
-      document.body.style.backgroundColor = "#000";
-      document.body.style.color = "rgb(217, 217, 217)";
+      document.querySelector('html').classList.add('night-mode')
+      // document.body.style.backgroundColor = "#000";
+      // document.body.style.color = "rgb(217, 217, 217)";
 
-      document.querySelector(".bstar-header").style.backgroundColor = '#000';
-      document.querySelector(".bstar-header").style.borderBottomWidth = '0';
+      // document.querySelector(".bstar-header").style.backgroundColor = '#000';
+      // document.querySelector(".bstar-header").style.borderBottomWidth = '0';
 
-      if (document.querySelector(".interactive")) document.querySelector(".interactive").style.backgroundColor = '#000';
-        const searchBar = document.querySelector(".bstar-header-search-bar__input");
-        if (searchBar) {
-            // searchBar.style.backgroundColor = '#fff';
-            searchBar.style.color = '#fff';
-            document.querySelector(".bstar-header-search-bar").style.backgroundColor = '#3b3b3b';
-        }
+      // if (document.querySelector(".interactive")) document.querySelector(".interactive").style.backgroundColor = '#000';
+      //   const searchBar = document.querySelector(".bstar-header-search-bar__input");
+      //   if (searchBar) {
+      //       // searchBar.style.backgroundColor = '#fff';
+      //       searchBar.style.color = '#fff';
+      //       document.querySelector(".bstar-header-search-bar").style.backgroundColor = '#3b3b3b';
+      //   }
 
-      document.querySelectorAll('.bstar-video-card__title-text').forEach(e =>( e.style.color = '#d1d1d1'));
-      document.querySelectorAll('.bstar-video-card__desc').forEach(e =>( e.style.color = '#d1d1d1'));
-      document.querySelectorAll('.bstar-header__action').forEach(e =>( e.style.color = '#d1d1d1'));
-      document.querySelectorAll('.bstar-header__download-btn').forEach(e =>( e.style.color = '#d1d1d1'));
-      document.querySelectorAll('.bstar-header__left-menu').forEach(e =>( e.style.color = '#d1d1d1'));
-      document.querySelectorAll('.bstar-sidebar__menu').forEach(e =>( e.style.color = 'red'));
-      // Another page
-      if (document.querySelector(".layout__content")) document.querySelector(".layout__content").style.backgroundColor = '#000';
-      if (document.querySelector(".layout__wrapper")) document.querySelector(".layout__wrapper").style.backgroundColor = '#000';
-      if (document.querySelector(".bstar-sidebar")) {
-            document.querySelector(".bstar-sidebar").style.backgroundColor = '#000';
-            document.querySelectorAll('.bstar-sidebar__link').forEach(e =>( e.style.color = '#d1d1d1'));
-      }
-      if (document.querySelector(".trending")) document.querySelector(".trending").style.backgroundColor = '#000';
+      // document.querySelectorAll('.bstar-video-card__title-text').forEach(e =>( e.style.color = '#d1d1d1'));
+      // document.querySelectorAll('.bstar-video-card__desc').forEach(e =>( e.style.color = '#d1d1d1'));
+      // document.querySelectorAll('.bstar-header__action').forEach(e =>( e.style.color = '#d1d1d1'));
+      // document.querySelectorAll('.bstar-header__download-btn').forEach(e =>( e.style.color = '#d1d1d1'));
+      // document.querySelectorAll('.bstar-header__left-menu').forEach(e =>( e.style.color = '#d1d1d1'));
+      // document.querySelectorAll('.bstar-sidebar__menu').forEach(e =>( e.style.color = 'red'));
+      // // Another page
+      // if (document.querySelector(".layout__content")) document.querySelector(".layout__content").style.backgroundColor = '#000';
+      // if (document.querySelector(".layout__wrapper")) document.querySelector(".layout__wrapper").style.backgroundColor = '#000';
+      // if (document.querySelector(".bstar-sidebar")) {
+      //       document.querySelector(".bstar-sidebar").style.backgroundColor = '#000';
+      //       document.querySelectorAll('.bstar-sidebar__link').forEach(e =>( e.style.color = '#d1d1d1'));
+      // }
+      // if (document.querySelector(".trending")) document.querySelector(".trending").style.backgroundColor = '#000';
 
      // document.querySelectorAll(".video-*").forEach(e => {
       //  e.style.color = "rgb(217, 217, 217)";
      // });
 
-      document.querySelectorAll(".bstar-web__header").forEach(e => {
-        e.style.background = "rgba(26,26,26,.85)"
-      });
-      document.querySelector("#search-bar")?.classList.add("comp-search-bar-dark");
+      // document.querySelectorAll(".bstar-web__header").forEach(e => {
+      //   e.style.background = "rgba(26,26,26,.85)"
+      // });
+      // document.querySelector("#search-bar")?.classList.add("comp-search-bar-dark");
 
-      document.querySelector(".bstar-backtop")?.classList.add("dark");
-      document.querySelector(".sidebar__link")?.classList.add("category-title-dark");
+      // document.querySelector(".bstar-backtop")?.classList.add("dark");
+      // document.querySelector(".sidebar__link")?.classList.add("category-title-dark");
 
       bilibiliPlayer = document.getElementById("bilibiliPlayer");
       if (bilibiliPlayer) {
