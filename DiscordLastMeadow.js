@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Discord Activity: Last Meadow
 // @namespace    http://tampermonkey.net/
-// @version      2.1
+// @version      2.2
 // @description  Auto Adventure + Auto Craft + Auto Battle for Discord activities
 // @match        https://discord.com/*
 // @grant        none
@@ -166,11 +166,19 @@
   }
 
   // UI
+  const GAME_ROOT = '#app-mount > div.appAsidePanelWrapper_a3002d > div > div:nth-child(6) > div';
+
+  setInterval(() => {
+    const panel = document.getElementById('dab-panel');
+    if (!panel) return;
+    panel.style.display = document.querySelector(GAME_ROOT) ? 'flex' : 'none';
+  }, 1000);
+
   const ui = document.createElement('div');
   ui.innerHTML = `
     <div id="dab-panel" style="
       position: fixed; top: 20px; left: 20px; z-index: 99999;
-      display: flex; flex-direction: column; gap: 8px;
+      display: none; flex-direction: column; gap: 8px;
       font-family: sans-serif;
     ">
       <button id="dab-clicker" style="
