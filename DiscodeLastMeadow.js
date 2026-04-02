@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Discord Activity: Last Meadow
 // @namespace    http://tampermonkey.net/
-// @version      1.3
+// @version      1.4
 // @description  Auto clicker + arrow sequence + grid matcher for Discord activities
 // @match        https://discord.com/*
 // @grant        none
@@ -25,7 +25,9 @@
     const delay = Math.floor(Math.random() * (80 - 40 + 1)) + 40;
     timeoutId = setTimeout(() => {
       const btn = document.querySelector('.button__65fca');
+        const btnDragon = document.querySelector('.dragonClickable__8e80e');
       if (btn) btn.click();
+        if (btnDragon) btnDragon.click();
       clickLoop();
     }, delay);
   }
