@@ -30,34 +30,35 @@
     }, delay);
   }
 
-  function pressArrowSequence() {
-    const characters = document.querySelectorAll('.character__34527 img');
-    if (!characters.length) {
-      alert('No arrow sequence found on screen.');
-      return;
-    }
-    const keys = [...characters].map(img => img.alt);
-    console.log('[Last Meadow] Arrow seq:', keys);
+    function pressArrowSequence() {
+        const characters = document.querySelectorAll('.character__34527 img');
+        if (!characters.length) {
+            alert('No arrow sequence found on screen.');
+            return;
+        }
+        const keys = [...characters].map(img => img.alt);
+        console.log('[Last Meadow] Arrow seq:', keys);
 
-    keys.forEach((key, i) => {
-      const delay = (Math.floor(Math.random() * (200 - 120 + 1)) + 120) * i;
-      setTimeout(() => {
-        const target = document.activeElement || document.body;
-        ['keydown', 'keypress', 'keyup'].forEach(type => {
-          target.dispatchEvent(new KeyboardEvent(type, {
-            key,
-            code: key,
-            keyCode: keyCodeMap[key],
-            which: keyCodeMap[key],
-            bubbles: true,
-            cancelable: true,
-            composed: true,
-          }));
+        keys.forEach((key, i) => {
+            const delay = (Math.floor(Math.random() * (240 - 160 + 1)) + 160) * i;
+            setTimeout(() => {
+                const target = document.activeElement || document.body;
+                ['keydown', 'keypress', 'keyup'].forEach(type => {
+                    target.dispatchEvent(new KeyboardEvent(type, {
+                        key,
+                        code: key,
+                        keyCode: keyCodeMap[key],
+                        which: keyCodeMap[key],
+                        bubbles: true,
+                        cancelable: true,
+                        composed: true,
+                    }));
+                });
+                console.log(`[Last Meadow] pressed: ${key}`);
+            }, delay);
         });
-        console.log(`[Last Meadow] pressed: ${key}`);
-      }, delay);
-    });
-  }
+    }
+
 
   function findAndClickMatches() {
     const items = document.querySelectorAll('.gridItem__0dcd3:not(.matched__0dcd3)');
