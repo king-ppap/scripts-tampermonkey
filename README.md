@@ -1,4 +1,4 @@
-# scripts-tampermonkey
+# Scripts Tampermonkey
 
 ## Extension
 [Tampermonkey](https://www.tampermonkey.net/)
