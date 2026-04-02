@@ -8,4 +8,7 @@
 2. Open BiliBili, click `Open Pot` ![image](https://github.com/king-ppap/scripts-tampermonkey/assets/16337137/5d3afbc3-fad6-4bb9-98e2-a5f3be155a34)
 
 ## [Auto click Discord activity `Last Meadow`](DiscordLastMeadow.js)
-<img width="1030" height="182" alt="image" src="https://github.com/user-attachments/assets/8c80a8d0-4f5d-44c1-80c1-49f562cdfa0b" />
+- Auto Adventure
+- Auto Craft
+- Auto Battle
+<img width="385" height="299" alt="image" src="https://github.com/user-attachments/assets/e756ecba-4e72-4952-97ec-ae57d63540ba" />
