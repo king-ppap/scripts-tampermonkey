@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Discord Activity: Last Meadow
 // @namespace    http://tampermonkey.net/
-// @version      1.1
-// @description  Auto clicker + arrow sequence presser for Discord activities
+// @version      1.3
+// @description  Auto clicker + arrow sequence + grid matcher for Discord activities
 // @match        https://discord.com/*
 // @grant        none
 // ==/UserScript==
@@ -36,9 +36,8 @@
       alert('No arrow sequence found on screen.');
       return;
     }
-
     const keys = [...characters].map(img => img.alt);
-    console.log('[Arrow Seq]', keys);
+    console.log('[Last Meadow] Arrow seq:', keys);
 
     keys.forEach((key, i) => {
       const delay = (Math.floor(Math.random() * (200 - 120 + 1)) + 120) * i;
@@ -55,8 +54,40 @@
             composed: true,
           }));
         });
-        console.log(`[Arrow Seq] pressed: ${key}`);
+        console.log(`[Last Meadow] pressed: ${key}`);
       }, delay);
+    });
+  }
+
+  function findAndClickMatches() {
+    const items = document.querySelectorAll('.gridItem__0dcd3:not(.matched__0dcd3)');
+    if (!items.length) {
+      alert('No grid items found on screen.');
+      return;
+    }
+
+    // Group unmatched items by first path's d attribute
+    const groups = {};
+    items.forEach(item => {
+      const firstPath = item.querySelector('svg path');
+      if (!firstPath) return;
+      const key = firstPath.getAttribute('d');
+      if (!groups[key]) groups[key] = [];
+      groups[key].push(item);
+    });
+
+    console.log('[Last Meadow] Grid groups:', Object.keys(groups).map(k => `${k.slice(0, 40)}...: ${groups[k].length}`));
+
+    // Click all cards in each group: ~200ms between cards, ~1s between groups
+    let setDelay = 0;
+    Object.entries(groups).forEach(([key, cards]) => {
+      cards.forEach((card, i) => {
+        setTimeout(() => {
+          card.click();
+          console.log(`[Last Meadow] grid clicked [${i + 1}/${cards.length}]: ${key.slice(0, 40)}...`);
+        }, setDelay + i * 200);
+      });
+      setDelay += cards.length * 200 + 1000;
     });
   }
 
@@ -80,6 +111,12 @@
         font-size: 13px; font-weight: 600;
         box-shadow: 0 4px 12px rgba(0,0,0,0.4);
       ">⬆ Press Sequence</button>
+      <button id="dab-grid" style="
+        padding: 8px 16px; background: #fee75c; color: #000;
+        border: none; border-radius: 8px; cursor: pointer;
+        font-size: 13px; font-weight: 600;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      ">🔲 Match Grid</button>
     </div>
   `;
   document.body.appendChild(ui);
@@ -99,4 +136,5 @@
   });
 
   document.getElementById('dab-arrow').addEventListener('click', pressArrowSequence);
+  document.getElementById('dab-grid').addEventListener('click', findAndClickMatches);
 })();
