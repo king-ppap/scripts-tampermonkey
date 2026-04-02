@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Discord Activity: Last Meadow
 // @namespace    http://tampermonkey.net/
-// @version      2.0
+// @version      2.1
 // @description  Auto Adventure + Auto Craft + Auto Battle for Discord activities
 // @match        https://discord.com/*
 // @grant        none
@@ -169,7 +169,7 @@
   const ui = document.createElement('div');
   ui.innerHTML = `
     <div id="dab-panel" style="
-      position: fixed; bottom: 20px; right: 20px; z-index: 99999;
+      position: fixed; top: 20px; left: 20px; z-index: 99999;
       display: flex; flex-direction: column; gap: 8px;
       font-family: sans-serif;
     ">
